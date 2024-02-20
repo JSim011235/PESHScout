@@ -1,0 +1,9 @@
+body {
+    background-color: #fcba03;
+    color: black;
+    font-family: 'Courier New', monospace;
+}
+
+h1, h2{
+  text-align: center;
+}

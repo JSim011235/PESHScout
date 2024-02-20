@@ -1,0 +1,10 @@
+{
+  "name": "Firechat",
+  "short_name": "Firechat",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "gcm_sender_id": "103953800507",
+  "manifest_version": 2,
+  "version": "0.2"
+}

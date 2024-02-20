@@ -1,0 +1,34 @@
+{
+  "files": {
+    "public/matchForm.html": [
+      {
+        "id": "0f58bb58-d6eb-4c3c-82dd-6c6424030647",
+        "line": 1,
+        "version": 2438,
+        "index": 0
+      },
+      {
+        "id": "0b68f213-5773-4a14-a602-e0a6bba802ff",
+        "line": 1,
+        "version": 2438,
+        "index": 0
+      }
+    ],
+    "public/scripts/index.js": [
+      {
+        "id": "49a8c2b6-b343-4572-9526-0628399808e8",
+        "line": 29,
+        "version": 0,
+        "index": 851
+      }
+    ],
+    "src/firebase-messaging-sw.js": [
+      {
+        "id": "b02c595f-b6a4-4973-aff9-ce9532e71579",
+        "line": 18,
+        "version": 4,
+        "index": 680
+      }
+    ]
+  }
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pre-lim Robot Form</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="scoutingFormStyle.css">
+</head>
+<body>
+        <h1 id ="toChange">Pre-lim Robot Form</h1>
+        <hr>
+        <form id ="robotForm">
+            <fieldset>
+                <p>Q1) What does your robot do (functionality)?</p>
+                <textarea name="functionality"></textarea>
+            </fieldset>
+          <hr>
+
+            <fieldset>
+              <p>Q2) Does it have a working teleop?</p>
+              <div name="has_teleop">
+                <input type="radio" class="toggle1"><label>Yes</label>
+                <input type="radio" class="toggle1"><label>No</label>
+              </div>
+            </fieldset>
+            <hr>
+          
+            <fieldset>
+                <p>Q3) What is your endgame strategy?</p>
+                <textarea name="endgame_strategy"></textarea>
+            </fieldset>
+            <hr>
+          
+            <fieldset>
+                <p>Q4) How many points do you score in auton?</p>
+                <input type="number" name="auton_points">
+            </fieldset>
+            <hr>
+          
+            <fieldset>
+                Q5) Do you read a team element?
+                <div name="reads_team_element">
+                  <input type="radio" class="toggle1"><label>Yes</label>
+                  <input type="radio" class="toggle1"><label>No</label>
+                </div>
+            </fieldset>
+            <hr>
+          
+            <fieldset>
+                <p>Q6) Is your robot able to score pixels on the backdrop?</p>
+              <div name="scores_pixels">
+                <input type="radio" class="toggle1"><label>Yes</label>
+                <input type="radio" class="toggle1"><label>No</label>
+              </div>
+            </fieldset>
+            <hr>
+          
+            <fieldset>
+                <p>Q7) Draw your Auton Path:</p>
+                <div id="canvas-container">
+                    <canvas id="drawing-canvas" width="400" height="300"></canvas>
+                </div>
+            </fieldset>
+            
+                <input href="index.html" id = "submit" type="submit" value="Submit">
+        </form>
+  
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.0.0/fabric.min.js">
+    function getTeamIdFromURL() {
+        var url = window.location.href;
+
+        var urlParts = url.split('?');
+
+        if (urlParts.length > 1) {
+            var queryParams = urlParts[1];
+
+            var paramPairs = queryParams.split('&');
+
+            for (var i = 0; i < paramPairs.length; i++) {
+                var keyValue = paramPairs[i].split('=');
+
+                if (keyValue[0] === 'team') {
+                    return keyValue[1];
+                }
+            }
+        }
+
+        return '';
+    }
+    
+      function getTeamName() {
+          const url = window.location.href;
+          const teamParamIndex = url.indexOf("team=");
+          if (teamParamIndex !== -1) {
+              const teamNameStart = teamParamIndex + 5; 
+              let teamName = url.slice(teamNameStart).match(/^\d+/);
+              if (teamName) {
+                  teamName = teamName[0];
+                  return teamName;
+              }
+          }
+          return "";
+      }
+
+
+      
+      
+          document.getElementById("robotForm").addEventListener("submit", function (event) {
+              event.preventDefault();
+
+              const formData = new FormData(document.getElementById("robotForm"));
+              const data = {};
+
+              for (const [key, value] of formData.entries()) {
+                  data[key] = value;
+              }
+
+              if (!data.functionality) {
+                  alert("Please provide an answer for Q1");
+                  return;
+              }
+
+            const teamName = getTeamName() + " Prelim Form";
+
+              const embed = {
+                  title: teamName,
+                  color: 0x9932CC, 
+                  fields: [],
+              };
+
+              embed.fields.push({ name: "Q1) What does your robot do (functionality)?", value: data.functionality });
+              embed.fields.push({ name: "Q2) Does it have a working teleop?", value: data.has_teleop });
+              embed.fields.push({ name: "Q3) What is your endgame strategy?", value: data.endgame_strategy });
+              embed.fields.push({ name: "Q4) How many points do you score in auton?", value: data.auton_points });
+              embed.fields.push({ name: "Q5) Do you read a team element?", value: data.reads_team_element });
+              embed.fields.push({ name: "Q6) Is your robot able to score pixels on the backdrop?", value: data.scores_pixels });
+              embed.fields.push({ name: "Q7) Draw your Auton Path:", value: "working on this later" }); 
+              const jsonData = JSON.stringify({ embeds: [embed] });
+              sendDataToDiscordWebhook(jsonData);
+            const newPageURL = "index.html"; 
+            teamId = getTeamIdFromURL();
+            window.location.href = `index.html?team=${teamId}&prelimCheck=true&matchForm=false`;
+          });
+
+          function sendDataToDiscordWebhook(data) {
+              fetch("/submit-form", {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: data,
+              })
+                  .then(response => {
+                      if (response.ok) {
+                          alert('Form submitted successfully');
+                      }
+                  })
+            const webhookUrl = 'https://discord.com/api/webhooks/1170529329831219321/lKGbVgxea5HT-F9KKad6P1P0r6VeXMl9XnRAstRTDibpeLNChsx3rYpOt9Fjok7Jdy1P'; 
+
+              fetch(webhookUrl, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: data,
+              })
+                  .then(response => {
+                      if (response.ok) {
+                          alert('Form submitted successfully');
+                      }
+                  })
+          }      
+        const canvas = new fabric.Canvas('drawing-canvas', {
+            isDrawingMode: true
+        });
+
+        canvas.freeDrawingBrush.color = '#00FF00';
+        canvas.freeDrawingBrush.width = 2;
+        fabric.Image.fromURL('CenterStageTiles.PNG', function(img) {
+            img.scaleToWidth(canvas.width);
+            img.scaleToHeight(canvas.height);
+            canvas.backgroundImage = img;
+            canvas.renderAll();
+        });
+
+    function getTeamName() {
+        const url = window.location.href;
+        const teamParamIndex = url.indexOf("team=");
+        if (teamParamIndex !== -1) {
+            const teamNameStart = teamParamIndex + 5; 
+            let teamName = url.slice(teamNameStart).match(/^\d+/);
+            if (teamName) {
+                teamName = teamName[0];
+                return teamName;
+            }
+        }
+        return "";
+    }
+
+    document.getElementById("toChange").innerHTML = "Pre-lim Form " + getTeamName();
+      
+    </script>
+</body>
+</html>

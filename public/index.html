@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="IMG_7539.png">
+    <title>14524 Scout</title>
+</head>
+<body>
+  <style>
+      body {
+          font-family: 'Roboto', sans-serif;
+          background-color: #111;
+          color: #ffd700;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+      }
+      h2 {
+          text-align: center;
+          color: #ffd700;
+          margin-bottom: 20px;
+      }
+      table {
+          border-collapse: collapse;
+          width: 80%;
+          margin-top: 20px;
+      }
+      th, td {
+          text-align: center;
+          padding: 12px;
+      }
+      tr:nth-child(even) {
+          background-color: #1e1e1e;
+      }
+      th {
+          background-color: #000;
+          color: #ffd700;
+      }
+      a {
+          color: #ffd700;
+          text-decoration: none;
+      }
+      a:hover {
+          text-decoration: underline;
+      }
+      .made-by {
+          margin-top: 30px;
+          text-align: center;
+          font-size: 14px;
+          color: #aaa;
+      }
+      .icon {
+          color: #ffd700;
+          font-size: 24px;
+          margin-right: 5px;
+      }
+  </style>
+
+
+    <table>
+      <table id="teamTable">
+          <thead>
+              <tr>
+                  <th>Name</th>
+              </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table>
+
+  <div class="made-by">
+      <i class="icon fas fa-robot"></i>Made by:<i class="icon fas fa-heart"></i>14524 PESH BOTS
+  </div>
+
+
+    <script>
+
+    
+      const teamLinks = document.querySelectorAll('a');
+      teamLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+              const teamId = event.target.id;
+              console.log('Team ID:', teamId);
+              event.target.href = `form.html?team=${teamId}`;
+          });
+      });
+
+      fetch('teams.json')
+        .then(response => response.json())
+        .then(data => {
+          const tbody = document.querySelector('#teamTable tbody');
+          data.forEach(team => {
+            const tr = document.createElement('tr');
+            const td = document.createElement('td');
+            const a = document.createElement('a');
+            a.href = `form.html?team=${team.id}`;
+            a.textContent = team.name;
+            td.appendChild(a);
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+          });
+        });
+
+    </script>

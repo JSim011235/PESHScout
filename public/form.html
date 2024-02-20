@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="IMG_7539.png">
+    <title>14524 Scout</title>
+    <link rel="icon" type="image/png" href="path/to/your/favicon.png">
+    <style>
+        body {
+            background-color: #000;
+            color: #ffd700;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .made-by {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .button {
+            background-color: #ffd700;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #ffd966;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="teamTitle">Forms</h1>
+        <button class="button" onclick="location.href='matchForm.html?team=' + getTeamIdFromURL()">Match Form</button>
+        <button class="button" onclick="location.href='index.html'">Go Back</button>
+
+        <div class="made-by">
+            <i class="icon fas fa-robot"></i>Made by: <i class="icon fas fa-heart"></i>14524 PESH BOTS
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var teamNumber = getTeamIdFromURL();
+            if (teamNumber) {
+                teamNumber = teamNumber.slice(0, -1); // Remove the last character 'F'
+                document.getElementById('teamTitle').innerText = teamNumber + ' Forms';
+            }
+        };
+
+        function getTeamIdFromURL() {
+            var url = window.location.href;
+            
+            var urlParts = url.split('?');
+            
+            if (urlParts.length > 1) {
+                var queryParams = urlParts[1];
+                
+                var paramPairs = queryParams.split('&');
+                
+                for (var i = 0; i < paramPairs.length; i++) {
+                    var keyValue = paramPairs[i].split('=');
+                    
+                    if (keyValue[0] === 'team') {
+                        return keyValue[1];
+                    }
+                }
+            }
+
+            return '';
+        }
+    </script>
+</body>
+</html>

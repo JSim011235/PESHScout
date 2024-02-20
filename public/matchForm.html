@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="IMG_7539.png">
+    <title>14524 Scout</title>
+    <style>
+      body {
+          background-color: #1e1e1e;
+          color: #ffd700;
+          font-family: 'Courier New', monospace;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          width: 95%;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .container {
+          max-width: 100%;
+          padding: 40px;
+          border: 1px solid #ffd700;
+          border-radius: 10px;
+          background-color: #1e1e1e;
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+
+      h1, h2 {
+          color: #1e1e1e;
+          background-color: #ffd700;
+          padding: 10px;
+          border-radius: 8px;
+      }
+
+      form {
+          background-color: #1e1e1e;
+          color: #ffd700;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+          overflow: auto;
+      }
+
+      hr {
+          border: 1px solid #ffd700;
+          margin: 10px 0;
+      }
+
+      .question {
+          color: #ffd700;
+      }
+
+      .response {
+          margin-top: 10px;
+      }
+
+      input[type="radio"],
+      input[type="submit"],
+      input[type="number"] {
+          padding: 10px;
+          margin: 5px;
+          border: 1px solid #ffd700;
+          border-radius: 5px;
+          background-color: #ffd700;
+          color: #1e1e1e;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+      input[type="number"] {
+          -moz-appearance: textfield;
+          width: 50px;
+      }
+
+      .number-input {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 70px;
+          margin-left: auto;
+          margin-right: 0;
+      }
+
+      .number-input button {
+          width: 20px;
+          height: 20px;
+          font-size: 0.8em;
+          cursor: pointer;
+          border: none;
+          background-color: #ffd700;
+          color: #1e1e1e;
+      }
+
+      .number-input button.up {
+          order: -1;
+      }
+
+    </style>
+</head>
+<body>
+    <form id="submitFormLol">
+        <h2>Match</h2>
+        <hr>
+
+        <fieldset>
+            <p class="question">What is the match number?</p>
+            <div class="response1" name="zero">
+                <button type="button" class="up" onclick="changeNumber(this, 'match_num', 1)">+</button>
+                <input type="number" name="match_num" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'match_num', 1)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <p class="question">Alliance Color</p>
+            <div class="response" name="zerodos">
+                <input name="toggle0" type="radio" id="Red"><label>Red</label>
+                <input name="toggle0" type="radio" id="Blue" checked><label>Blue</label>
+            </div>
+        </fieldset>
+        <hr>
+        <h2>Autonomous</h2>
+        <hr>
+
+        <fieldset>
+            <p class="question">Robot parked in the backstage for the corresponding alliance? (5 Points)</p>
+            <div class="response" name="one">
+                <input name="toggle1" type="radio" id="Yes"><label>Yes</label>
+                <input name="toggle1" type="radio" id="No" checked><label>No</label>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Purple pixel placed on the robot’s designated backdrop location based on the element on the spike mark? 10 pts (20 if w/ team prop)</p>
+            <div class="response" name="two">
+                <input name="toggle2" type="radio" id="Yes (Team Prop)"><label>Yes (Team Prop)</label>
+                <input name="toggle2" type="radio" id="Yes (NO Team Prop)"><label>Yes (NO Team Prop)</label>
+                <input name="toggle2" type="radio" id="No" checked><label>No</label>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Yellow Pixel placed on the robot’s designated Spike Mark in the Tile immediately adjacent to the starting location? 10 pts (20 if w/ team prop)</p>
+            <div class="response" name="three">
+                <input name="toggle3" type="radio" id="Yes (Team Prop)"><label>Yes (Team Prop)</label>
+                <input name="toggle3" type="radio" id="Yes (NO Team Prop)"><label>Yes (NO Team Prop)</label>
+                <input name="toggle3" type="radio" id="No" checked><label>No</label>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Pixels On the recessed Scoring area of their Alliance Backdrop? 5 each</p>
+            <div class="response1" name="five">
+                <button type="button" class="up" onclick="changeNumber(this, 'pixels_in_backstage', 5)">+</button>
+                <input type="number" name="pixels_in_backstage" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'pixels_in_backstage',5)">-</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <p class="question">Pixels In their Alliance Backstage? 3 each</p>
+            <div class="response1" name="five">
+                <button type="button" class="up" onclick="changeNumber(this, 'pixels_in_backstage',3)">+</button>
+                <input type="number" name="pixels_in_backstage" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'pixels_in_backstage', 3)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+
+        <!-- Tele-Op -->
+        <h2>Tele-Op</h2>
+        <hr>
+
+        <fieldset>
+            <p class="question">Pixels On the recessed Scoring area of their Alliance Backdrop? 3 each</p>
+            <div class="response1" name="six">
+                <button type="button" class="up" onclick="changeNumber(this, 'teleop_pixels_on_backdrop', 3)">+</button>
+                <input type="number" name="teleop_pixels_on_backdrop" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'teleop_pixels_on_backdrop',3)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Pixels In their Alliance Backstage? 1 each</p>
+            <div class="response1" name="seven">
+                <button type="button" class="up" onclick="changeNumber(this, 'teleop_pixels_in_backstage', 1)">+</button>
+                <input type="number" name="teleop_pixels_in_backstage" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'teleop_pixels_in_backstage', 1)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Mosaics? 10 each</p>
+            <div class="response1" name="eight">
+                <button type="button" class="up" onclick="changeNumber(this, 'mosaics', 10)">+</button>
+                <input type="number" name="mosaics" value="0" min="0">
+                <button type="button" class="down" onclick="changeNumber(this, 'mosaics', 10)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Vertically crossing In each Set Line? 1 each max 3</p>
+            <div class="response1" name="ten">
+                <button type="button" class="up" onclick="changeNumber(this, 'vertically_crossing', 1)">+</button>
+                <input type="number" name="vertically_crossing" value="0" min="0" max="3">
+                <button type="button" class="down" onclick="changeNumber(this, 'vertically_crossing', 1)">-</button>
+            </div>
+        </fieldset>
+        <hr>
+
+        <!-- End Game -->
+        <h2>End Game</h2>
+        <hr>
+
+        <fieldset>
+            <p class="question">Robot Suspended by a corresponding Alliance’s Rigging?</p>
+            <div class="response" name="eleven">
+                <input name="toggle5" type="radio" id="Yes"><label>Yes</label>
+                <input name="toggle5" type="radio" id="No" checked><label>No</label>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Parked In the Backstage for the corresponding Alliance?</p>
+            <div class="response" name="twelve">
+                <input name="toggle6" type="radio" id="Yes"><label>Yes</label>
+                <input name="toggle6" type="radio" id="No" checked><label>No</label>
+            </div>
+        </fieldset>
+        <hr>
+
+        <fieldset>
+            <p class="question">Zone Drone Landed in?</p>
+            <div class="response" name="thirteen">
+                <input name="toggle7" type="radio" id="Zone1"><label>Zone 1</label>
+                <input name="toggle7" type="radio" id="Zone2"><label>Zone 2</label>
+                <input name="toggle7" type="radio" id="Zone3"><label>Zone 3</label>
+                <input name="toggle7" type="radio" id="None" checked><label>None</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <input class="submit" id="submit" type="submit" value="Submit"/>
+        </fieldset>
+    </form>
+</body>
+
+<script>
+    function count(clicked_id, count) {
+        var counter = document.getElementById('counter').innerHTML;
+        var parsed = parseInt(counter);
+        let result = clicked_id == "minus" ? parsed - 5 : parsed + 5;
+        document.getElementById('counter').innerHTML = result;
+    }
+
+    function getTeamIdFromURL() {
+        var url = window.location.href;
+
+        var urlParts = url.split('?');
+
+        if (urlParts.length > 1) {
+            var queryParams = urlParts[1];
+
+            var paramPairs = queryParams.split('&');
+
+            for (var i = 0; i < paramPairs.length; i++) {
+                var keyValue = paramPairs[i].split('=');
+
+                if (keyValue[0] === 'team') {
+                    return keyValue[1];
+                }
+            }
+        }
+
+        return '';
+    }
+
+    function getTeamName() {
+        const url = window.location.href;
+        const teamParamIndex = url.indexOf("team=");
+        if (teamParamIndex !== -1) {
+            const teamNameStart = teamParamIndex + 5;
+            let teamName = url.slice(teamNameStart).match(/^\d+/);
+            if (teamName) {
+                teamName = teamName[0];
+                return teamName;
+            }
+        }
+        return "";
+    }
+
+    function changeNumber(button, inputName, amount) {
+        const input = button.parentNode.querySelector(`input[name="${inputName}"]`);
+        const value = parseInt(input.value);
+        if (button.classList.contains('up')) {
+            input.value = value + amount;
+        } else {
+            input.value = value - amount >= 0 ? value - amount : 0;
+        }
+    }
+
+
+    function sendDataToGoogleSheet(data) {
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbyZDpIOOTM7CTCzRuarr-QH09-GxmYIXu8NzJSQMI99lg_vi6jwvPX8vwXSLMwRlbN1/exec';
+
+        const formData = new FormData();
+        for (const [key, value] of Object.entries(data)) {
+            formData.append(key, value);
+        }
+
+        return fetch(scriptUrl, {
+            method: 'POST',
+            body: formData
+        });
+    }
+
+
+    function extractFormResponses() {
+        const formData = new FormData(document.getElementById("submitFormLol"));
+        // const data = {};
+        data = "{\"Team Name\":\"" + getTeamName() + "\",";
+
+        for (const [key, value] of formData.entries()) {
+            // If it's a radio button, get the value of the selected one
+            if (data[key] === undefined && document.querySelector(`[name="${key}"]:checked`)) {
+                // data +=  "\"" + key + "\": \"" + document.querySelector(`[name="${key}"]:checked`).value + "\",";
+                data += "\"" + key + "\": \"" + document.querySelector(`[name="${key}"]:checked`).id + "\",";
+            } else {
+                data += "\"" + key + "\": \"" + value + "\",";
+            }
+        }
+        data = data.substring(0, data.length - 1) + "}";
+
+        return data;
+    }
+
+    document.getElementById("submitFormLol").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Extract form responses
+        formResponses = extractFormResponses();
+
+        // Call the function to send data to Google Spreadsheet
+        // sendDataToGoogleSheet(formResponses);
+        fetch("/submit-form", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: formResponses,
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Form submitted successfully');
+                    // Redirect to index.html
+                    window.location.href = 'index.html';
+                }
+            });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Update content only if the element exists
+        const toChangeElement = document.getElementById("toChange");
+        if (toChangeElement) {
+            toChangeElement.innerHTML = "Match Form " + getTeamName();
+        }
+    });
+
+</script>
+</html>
