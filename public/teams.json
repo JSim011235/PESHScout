@@ -1,35 +1,127 @@
-[
-  {
-    "id": "-1F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-2F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-3F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-4F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-5F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-6F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-7F",
-    "name": "Test Team"
-  },
-  {
-    "id": "-8F",
-    "name": "Test Team - -8"
-  }
- 
-]
+[{
+  "id": "6832F",
+  "name": "Iron Reign - 6832"
+},{
+  "id": "7172F",
+  "name": "Technical Difficulties - 7172"
+},{
+  "id": "8204F",
+  "name": "Blue Machine - 8204"
+},{
+  "id": "8565F",
+  "name": "TechnicBots - 8565"
+},{
+  "id": "9045F",
+  "name": "Hornet Robotics - 9045"
+},{
+  "id": "11419F",
+  "name": "Jasper Wolves Blue - 11419"
+},{
+  "id": "12791F",
+  "name": "Iterative Intentions - 12791"
+},{
+  "id": "12977F",
+  "name": "Rust In Peace - 12977"
+},{
+  "id": "13072F",
+  "name": "Fellowship of the Robot - 13072"
+},{
+  "id": "14523F",
+  "name": "Free of Charge - 14523"
+},{
+  "id": "14524F",
+  "name": "PESH Bots - 14524"
+},{
+  "id": "14904F",
+  "name": "Bionicles - 14904"
+},{
+  "id": "15083F",
+  "name": "Overclock - 15083"
+},{
+  "id": "15877F",
+  "name": "Callisburg Robocats - 15877"
+},{
+  "id": "16176F",
+  "name": "CDA Lions - 16176"
+},{
+  "id": "16756F",
+  "name": "Raider Prime - 16756"
+},{
+  "id": "17011F",
+  "name": "Mercenaries - 17011"
+},{
+  "id": "17385F",
+  "name": "MCA Horsepower - Blue - 17385"
+},{
+  "id": "18227F",
+  "name": "Area 52 - 18227"
+},{
+  "id": "18270F",
+  "name": "RoboPlayers - 18270"
+},{
+  "id": "19564F",
+  "name": "The Marvels of MAS - 19564"
+},{
+  "id": "19567F",
+  "name": "Tier1 - 19567"
+},{
+  "id": "19587F",
+  "name": "EPIC Odyssey - 19587"
+},{
+  "id": "19990F",
+  "name": "Marcus de-TECH-tives - 19990"
+},{
+  "id": "20313F",
+  "name": "Mustang Robotics - 20313"
+},{
+  "id": "21127F",
+  "name": "Marvels of Irving - 21127"
+},{
+  "id": "21171F",
+  "name": "The Marvels of M12 - 21171"
+},{
+  "id": "21235F",
+  "name": "SHARK! - 21235"
+},{
+  "id": "21330F",
+  "name": "The Marvels of Tomorrow - 21330"
+},{
+  "id": "21354F",
+  "name": "EPIC Expedition - 21354"
+},{
+  "id": "21474F",
+  "name": "SynTech - 21474"
+},{
+  "id": "21813F",
+  "name": "Pro2type - 21813"
+},{
+  "id": "21834F",
+  "name": "EPIC Adventurer - 21834"
+},{
+  "id": "21932F",
+  "name": "Forged In Iron - 21932"
+},{
+  "id": "21965F",
+  "name": "Mainframe - 21965"
+},{
+  "id": "22077F",
+  "name": "Marcus Minions - 22077"
+},{
+  "id": "23344F",
+  "name": "Technical Turbulence - 23344"
+},{
+  "id": "23381F",
+  "name": "The Marksmen - 23381"
+},{
+  "id": "23778F",
+  "name": "Marvels of ICQC - 23778"
+},{
+  "id": "24095F",
+  "name": "Pink Fluffy Unicorns - 24095"
+},{
+  "id": "24447F",
+  "name": "Aetos Dios - 24447"
+},{
+  "id": "24563F",
+  "name": "Flower Mound Firewall - 24563"
+}]

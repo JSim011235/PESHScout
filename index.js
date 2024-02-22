@@ -26,6 +26,10 @@ app.get('/scouting', (req, res) => {
   res.sendFile(process.cwd() + '/public/scouting.html'); 
 });
 
+app.get('/csv', (req, res) => { 
+  res.sendFile(process.cwd() + '/file.csv'); 
+});
+
 app.get('/error', (req, res) => { // When someone tries to visit the '/error' directory
 	res.sendStatus(500) // Sends status codes to the client. find them https://www.restapitutorial.com/httpstatuscodes.html here
 	res.send('Hello!') // send html to the client

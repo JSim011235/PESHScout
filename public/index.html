@@ -76,6 +76,13 @@
   <div class="made-by">
       <i class="icon fas fa-robot"></i>Made by:<i class="icon fas fa-heart"></i>14524 PESH BOTS
   </div>
+  <div class="made-by">
+    <a id="no" href = "/csv">Download CSV</a>
+    <h1> </h1>
+    <h1> </h1>
+</div>
+<h1> </h1>
+<h1> </h1>
 
 
     <script>
@@ -83,11 +90,15 @@
     
       const teamLinks = document.querySelectorAll('a');
       teamLinks.forEach(link => {
+        if (link.id!="no")
+        {
           link.addEventListener('click', function(event) {
               const teamId = event.target.id;
               console.log('Team ID:', teamId);
               event.target.href = `form.html?team=${teamId}`;
+              
           });
+        }
       });
 
       fetch('teams.json')
